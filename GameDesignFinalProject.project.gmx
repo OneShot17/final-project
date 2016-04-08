@@ -7,29 +7,28 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_compass</sprite>
+    <sprite>sprites\spr_planet1</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\playerTakeDamage.gml</script>
+    <script>scripts\applyImpulse.gml</script>
+    <script>scripts\applyImpulseRect.gml</script>
+    <script>scripts\applyAngularImpulse.gml</script>
+    <script>scripts\accelerate.gml</script>
+    <script>scripts\registerGravityCenter.gml</script>
+    <script>scripts\calcDistance.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_controller</object>
-    <object>objects\obj_player</object>
-    <objects name="Enemies">
-      <object>objects\obj_enemyBase</object>
-      <object>objects\obj_enemyFighter</object>
+    <object>objects\InertialBody</object>
+    <objects name="InertialBody Objects">
+      <object>objects\GravityBody</object>
+      <object>objects\Player</object>
     </objects>
-    <objects name="Player Shots">
-      <object>objects\obj_playerShotBase</object>
-    </objects>
-    <objects name="Enemy Shots">
-      <object>objects\obj_enemyShotBase</object>
-    </objects>
-    <objects name="UI">
-      <object>objects\obj_playerHealthDrawer</object>
-      <object>objects\obj_enemyHealthDrawer</object>
-    </objects>
+    <object>objects\Compass</object>
+    <object>objects\GravityCenter</object>
+    <object>objects\GameHandler</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_game</room>
