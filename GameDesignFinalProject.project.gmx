@@ -6,9 +6,11 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_compass</sprite>
     <sprite>sprites\spr_planet1</sprite>
+    <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_sun</sprite>
+    <sprite>sprites\spr_shot</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background</background>
@@ -24,14 +26,24 @@
     <script>scripts\getInstancesOfObject.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\InertialBody</object>
-    <objects name="InertialBody Objects">
-      <object>objects\GravityBody</object>
-      <object>objects\Player</object>
+    <objects name="Daemons">
+      <object>objects\GameHandler</object>
     </objects>
-    <object>objects\Compass</object>
-    <object>objects\GravityCenter</object>
-    <object>objects\GameHandler</object>
+    <objects name="InertialBody Objects">
+      <object>objects\InertialBody</object>
+      <objects name="GravityBody Objects">
+        <object>objects\GravityBody</object>
+        <object>objects\Player</object>
+        <object>objects\Gunshot</object>
+      </objects>
+    </objects>
+    <objects name="GravityCenter Objects">
+      <object>objects\GravityCenter</object>
+      <object>objects\Sun</object>
+    </objects>
+    <objects name="GUI Objects">
+      <object>objects\Compass</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_game</room>

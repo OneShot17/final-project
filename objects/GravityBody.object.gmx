@@ -55,7 +55,7 @@ mass = 1;
             <string>/// Handle gravitational effects
 
 // super.end_step()
-
+event_inherited();
 
 // Find GravityCenters who's sphere of influence we are in and calculate gravity
 
@@ -72,8 +72,6 @@ for ( var i = 0; i &lt; instance_number(GravityCenter); i++ ) {
         accelerate( self, acceleration, theta );
     }
 }
-
-event_inherited();
 </string>
           </argument>
         </arguments>
