@@ -24,6 +24,7 @@
     <script>scripts\registerGravityCenter.gml</script>
     <script>scripts\calcDistance.gml</script>
     <script>scripts\getInstancesOfObject.gml</script>
+    <script>scripts\createInstanceAtRelativePosition.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Daemons">

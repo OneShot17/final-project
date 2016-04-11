@@ -30,6 +30,33 @@
 event_inherited();
 
 maxSpeed = 10;
+
+canShoot = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// kys gamemaker
+
+canShoot = true;
 </string>
           </argument>
         </arguments>
@@ -134,6 +161,58 @@ applyAngularImpulse( self, -.15 );
             <string>/// Turn left
 
 applyAngularImpulse( self, .15 );
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Weapon mechanics
+
+// Check to see if shooting alarm has triggered
+
+/*
+var shot1 = createInstanceAtRelativePosition(Gunshot, self, 0, 14);
+var shot2 = createInstanceAtRelativePosition(Gunshot, self, 0, 14);
+
+applyImpulse( shot1, speed, direction );
+applyImpulse( shot1, 20, image_angle );
+
+applyImpulse( shot2, speed, direction );
+applyImpulse( shot2, 20, image_angle );
+
+alarm[0] = 30;
+*/
+
+if canShoot {
+
+    var shot = instance_create(x, y, Gunshot);
+    
+    shot.speed = speed;
+    shot.direction = direction;
+    applyImpulse( shot, 20, image_angle );
+    
+    canShoot = false;
+    
+    alarm[0] = 30;
+
+}
 </string>
           </argument>
         </arguments>

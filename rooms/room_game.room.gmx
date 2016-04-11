@@ -52,9 +52,9 @@
   </views>
   <instances>
     <instance objName="GameHandler" x="0" y="0" name="inst_244CC085" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Compass" x="928" y="672" name="Player" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Player" x="64" y="64" name="inst_BF01B7E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Sun" x="512" y="384" name="inst_6CAF5E47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Compass" x="928" y="672" name="inst_3FE8F703" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
