@@ -29,7 +29,7 @@
 
 event_inherited();
 
-maxSpeed = 30;
+maxSpeed = 10;
 </string>
           </argument>
         </arguments>
@@ -56,7 +56,7 @@ maxSpeed = 30;
 
 //applyImpulse( self, 0.55, image_angle );
 
-accelerate( self, 7.5, image_angle);
+accelerate( self, 3, image_angle);
 </string>
           </argument>
         </arguments>

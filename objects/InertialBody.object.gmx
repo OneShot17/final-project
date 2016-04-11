@@ -53,7 +53,7 @@ maxSpeed = 10;
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>.025</string>
+            <string>0</string>
           </argument>
         </arguments>
       </action>

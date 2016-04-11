@@ -10,7 +10,9 @@
     <sprite>sprites\spr_compass</sprite>
     <sprite>sprites\spr_planet1</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\applyImpulse.gml</script>
@@ -19,6 +21,7 @@
     <script>scripts\accelerate.gml</script>
     <script>scripts\registerGravityCenter.gml</script>
     <script>scripts\calcDistance.gml</script>
+    <script>scripts\getInstancesOfObject.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\InertialBody</object>

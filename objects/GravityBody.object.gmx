@@ -55,19 +55,25 @@ mass = 1;
             <string>/// Handle gravitational effects
 
 // super.end_step()
-event_inherited();
 
-// Find GravityCenters who's sphere of influence we are in
 
-var gravityCenters = global.GravityCenters;
+// Find GravityCenters who's sphere of influence we are in and calculate gravity
 
-for (var i = 0; i &lt; global.GravityCentersIndex; i++) {
-    var distance = calcDistance( self, GravityCenter );
-    if distance &lt;= GravityCenter.sphereOfInfluence {
-        var force = G * mass * GravityCenter.mass / power( distance, 1.5 );
-        accelerate( self, force, point_direction( x, y, GravityCenter.x, GravityCenter.y ) );
+var gravityCenters = getInstancesOfObject(GravityCenter);
+
+for ( var i = 0; i &lt; instance_number(GravityCenter); i++ ) {
+    var gravityCenter = gravityCenters[i];
+    var distance = calcDistance( self, gravityCenter );
+    
+    if (distance &lt; gravityCenter.sphereOfInfluence) {
+        var acceleration = G * gravityCenter.mass / sqr(distance);
+        var theta = point_direction( x, y, gravityCenter.x, gravityCenter.y );
+        
+        accelerate( self, acceleration, theta );
     }
 }
+
+event_inherited();
 </string>
           </argument>
         </arguments>
