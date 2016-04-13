@@ -207,6 +207,7 @@ if canShoot {
     shot.speed = speed;
     shot.direction = direction;
     applyImpulse( shot, 20, image_angle );
+    shot.owner = self;
     
     canShoot = false;
     

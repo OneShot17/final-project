@@ -32,10 +32,10 @@
     </objects>
     <objects name="InertialBody Objects">
       <object>objects\InertialBody</object>
+      <object>objects\Gunshot</object>
       <objects name="GravityBody Objects">
         <object>objects\GravityBody</object>
         <object>objects\Player</object>
-        <object>objects\Gunshot</object>
       </objects>
     </objects>
     <objects name="GravityCenter Objects">
