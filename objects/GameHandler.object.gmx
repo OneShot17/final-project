@@ -34,6 +34,8 @@ global.GravityCentersIndex = 0;
 globalvar G;
 
 G = 100;
+
+show_message("An alien force has begun invading Humanity's sectors. You are rapidly losing systems. These remote-operated drones are your only hope at stopping them.");
 </string>
           </argument>
         </arguments>

@@ -62,7 +62,7 @@ canShoot = true;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="Sun">
+    <event eventtype="4" ename="GravityCenter">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -81,9 +81,15 @@ canShoot = true;
             <kind>1</kind>
             <string>/// Died
 
-show_message("You crashed into the sun. The humans lose this sector.")
 
-game_restart();
+
+if room_exists( room + 1 ) {
+    show_message("You have died, and this sector is now under control of the enemy. They have wiped all evidence of life from any habitable planets and are forcing you to retreat furhter into your territory.");
+    room++;
+} else {
+    show_message("You have lost Sector 001. The invaders have total control of Earth and have wiped all evidence of life from her surface. The only thing humanity can do is run forever, never stopping, never looking back...");
+    game_end();
+}
 </string>
           </argument>
         </arguments>

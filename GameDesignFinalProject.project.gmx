@@ -11,6 +11,7 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_sun</sprite>
     <sprite>sprites\spr_shot</sprite>
+    <sprite>sprites\spr_planet2</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background</background>
@@ -41,6 +42,10 @@
     <objects name="GravityCenter Objects">
       <object>objects\GravityCenter</object>
       <object>objects\Sun</object>
+      <objects name="Planets">
+        <object>objects\Planet1</object>
+        <object>objects\Planet2</object>
+      </objects>
     </objects>
     <objects name="GUI Objects">
       <object>objects\Compass</object>
