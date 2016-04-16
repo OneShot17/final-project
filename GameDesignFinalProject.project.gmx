@@ -53,6 +53,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\room_game</room>
+    <room>rooms\room_game2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
