@@ -59,6 +59,8 @@ event_inherited();
 
 // Find GravityCenters who's sphere of influence we are in and calculate gravity
 
+var chosenGravityCenter = undefined;
+
 var gravityCenters = getInstancesOfObject(GravityCenter);
 
 for ( var i = 0; i &lt; instance_number(GravityCenter); i++ ) {
@@ -66,12 +68,21 @@ for ( var i = 0; i &lt; instance_number(GravityCenter); i++ ) {
     var distance = calcDistance( self, gravityCenter );
     
     if (distance &lt; gravityCenter.sphereOfInfluence) {
-        var acceleration = G * gravityCenter.mass / sqr(distance);
-        var theta = point_direction( x, y, gravityCenter.x, gravityCenter.y );
         
-        accelerate( self, acceleration, theta );
+        if is_undefined( chosenGravityCenter )
+            chosenGravityCenter = gravityCenter;
+        else if distance / gravityCenter.sphereOfInfluence &gt; calcDistance( self, chosenGravityCenter ) / chosenGravityCenter.sphereOfInfluence {
+            chosenGravityCenter = gravityCenter;
+        }
     }
 }
+
+var distance = calcDistance( self, chosenGravityCenter );
+
+var acceleration = G * chosenGravityCenter.mass / sqr(distance);
+var theta = point_direction( x, y, chosenGravityCenter.x, chosenGravityCenter.y );
+
+accelerate( self, acceleration, theta );
 </string>
           </argument>
         </arguments>

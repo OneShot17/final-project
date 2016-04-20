@@ -11,6 +11,7 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_sun</sprite>
     <sprite>sprites\spr_shot</sprite>
+    <sprite>sprites\spr_planet2</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background</background>
@@ -32,15 +33,19 @@
     </objects>
     <objects name="InertialBody Objects">
       <object>objects\InertialBody</object>
+      <object>objects\Gunshot</object>
       <objects name="GravityBody Objects">
         <object>objects\GravityBody</object>
         <object>objects\Player</object>
-        <object>objects\Gunshot</object>
       </objects>
     </objects>
     <objects name="GravityCenter Objects">
       <object>objects\GravityCenter</object>
       <object>objects\Sun</object>
+      <objects name="Planets">
+        <object>objects\Planet1</object>
+        <object>objects\Planet2</object>
+      </objects>
     </objects>
     <objects name="GUI Objects">
       <object>objects\Compass</object>
@@ -48,6 +53,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\room_game</room>
+    <room>rooms\room_game2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

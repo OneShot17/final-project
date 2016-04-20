@@ -30,9 +30,9 @@
 
 event_inherited();
 
-sphereOfInfluence = 300;
+sphereOfInfluence = 5000;
 
-mass = 900;
+mass = 10000;
 </string>
           </argument>
         </arguments>
