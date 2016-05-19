@@ -23,7 +23,9 @@
     </datafile>
   </datafiles>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sound1</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_compass</sprite>
     <sprite>sprites\spr_planet1</sprite>
@@ -33,6 +35,7 @@
     <sprite>sprites\spr_planet2</sprite>
     <sprite>sprites\spr_gamelogo</sprite>
     <sprite>sprites\spr_button</sprite>
+    <sprite>sprites\spr_player_new</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background</background>
