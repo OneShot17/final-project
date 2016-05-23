@@ -41,6 +41,9 @@ button_color = -1;
 
 // Stop animation
 image_speed = 0;
+
+// Set default action
+action = MENU_ACTIONS.DO_NOTHING;
 </string>
           </argument>
         </arguments>
@@ -95,6 +98,48 @@ text_color += make_color_rgb(20,20,20);
 image_index = 1;
 
 text_color -= make_color_rgb(20,20,20);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Complete assigned action
+
+switch (action) {
+    case MENU_ACTIONS.START_GAME:
+        // Start game
+        room = room_level1;
+        break;
+    case MENU_ACTIONS.RESUME_SAVED:
+        // Resume saved game
+        game_load("save.sav");
+        break;
+    case MENU_ACTIONS.EXIT_GAME:
+        // Exit game
+        game_end();
+        break;
+    case MENU_ACTIONS.DO_NOTHING:
+        // Do nothing but log it
+        show_debug_message("Button (instid=" + string(self) + "): clicked, no action defined");
+        break;
+}
 </string>
           </argument>
         </arguments>

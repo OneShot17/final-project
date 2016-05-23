@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,44 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialize global varaibles
+            <string>/// MENU_ACTIONS
 
-global.GravityCenters[0] = 0;
-
-global.GravityCentersIndex = 0;
-
-globalvar G;
-
-G = 100;
-
-show_message("An alien force has begun invading Humanity's sectors. You are rapidly losing systems. These remote-operated drones are your only hope at stopping them.");
-
-game_save("save.sav");
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Save the game
-
-game_save("save.sav");
+enum MENU_ACTIONS {
+    START_GAME,
+    RESUME_SAVED,
+    EXIT_GAME,
+    DO_NOTHING
+}
 </string>
           </argument>
         </arguments>
