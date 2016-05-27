@@ -24,7 +24,7 @@
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\sfx_button_default</sound>
+    <sound>sound\sfx_button_deploy_mouseover</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_compass</sprite>
@@ -86,7 +86,7 @@
   <rooms name="rooms">
     <room>rooms\room_menu</room>
     <room>rooms\room_level1</room>
-    <room>rooms\room_game2</room>
+    <room>rooms\room_level2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

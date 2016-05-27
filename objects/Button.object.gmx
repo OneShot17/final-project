@@ -32,7 +32,7 @@ message = "";
 // [NOTE] Check for `undefined` when playing sounds
 mouse_enter_sound = undefined;
 
-click_sound = sfx_button_default;
+click_sound = undefined;
 
 // Change these in creation code for different colors
 text_color = c_white;
@@ -71,6 +71,10 @@ action = MENU_ACTIONS.DO_NOTHING;
 image_index = 0;
 
 text_color += make_color_rgb(20,20,20);
+
+if (audio_is_playing(sfx_button_deploy_mouseover)) {
+    audio_stop_sound(sfx_button_deploy_mouseover);
+}
 </string>
           </argument>
         </arguments>
@@ -98,6 +102,31 @@ text_color += make_color_rgb(20,20,20);
 image_index = 1;
 
 text_color -= make_color_rgb(20,20,20);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Play audio
+
+if action == MENU_ACTIONS.START_GAME {
+    audio_play_sound(sfx_button_deploy_mouseover, 2, true);
+}
 </string>
           </argument>
         </arguments>

@@ -210,9 +210,13 @@ if canShoot {
 
     var shot = instance_create(x, y, Gunshot);
     
-    shot.speed = speed;
-    shot.direction = direction;
-    applyImpulse( shot, 20, image_angle );
+    shot.hspeed = hspeed;
+    shot.vspeed = vspeed;
+    
+    shot.image_angle = shot.direction;
+    
+    applyImpulse( shot, 20, image_angle);
+    
     shot.owner = self;
     
     canShoot = false;
