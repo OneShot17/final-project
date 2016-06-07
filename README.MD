@@ -1,5 +1,19 @@
 # final-project
 
+## Credits
+
+Figured I'd start with these because I want them to be seen.
+
+### Music
+
+Title Music: "Trouble On Mercury" by Eric Matyas
+
+### SFX
+
+Deploy mouse-over alarm by cognito
+
+All not listed here are public domain and do not need attribution
+
 ## Minigame Assignment
 
 ### Level Design Choices

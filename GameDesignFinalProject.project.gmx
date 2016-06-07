@@ -25,6 +25,9 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\sfx_button_deploy_mouseover</sound>
+    <sound>sound\sfx_button_deploy</sound>
+    <sound>sound\sfx_crowd_booing</sound>
+    <sound>sound\audio_main_title</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_compass</sprite>

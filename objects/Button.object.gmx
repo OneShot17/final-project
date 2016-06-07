@@ -29,6 +29,9 @@
 
 message = "";
 
+// Override sound looping if the sound doesn't loop well (example: booing crowd effect)
+override_loop = false;
+
 // [NOTE] Check for `undefined` when playing sounds
 mouse_enter_sound = undefined;
 
@@ -72,8 +75,8 @@ image_index = 0;
 
 text_color += make_color_rgb(20,20,20);
 
-if (audio_is_playing(sfx_button_deploy_mouseover)) {
-    audio_stop_sound(sfx_button_deploy_mouseover);
+if (!is_undefined(mouse_enter_sound) &amp;&amp; audio_is_playing(mouse_enter_sound)) {
+    audio_stop_sound(mouse_enter_sound);
 }
 </string>
           </argument>
@@ -124,8 +127,8 @@ text_color -= make_color_rgb(20,20,20);
             <kind>1</kind>
             <string>/// Play audio
 
-if action == MENU_ACTIONS.START_GAME {
-    audio_play_sound(sfx_button_deploy_mouseover, 2, true);
+if !is_undefined(mouse_enter_sound) {
+    audio_play_sound(mouse_enter_sound, 2, !override_loop);
 }
 </string>
           </argument>
@@ -168,6 +171,35 @@ switch (action) {
         // Do nothing but log it
         show_debug_message("Button (instid=" + string(self) + "): clicked, no action defined");
         break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Play clickbait and stop other sounds
+
+if !is_undefined(click_sound) {
+    audio_play_sound(click_sound, 1, !override_loop);
+}
+
+if !is_undefined(mouse_enter_sound) &amp;&amp; audio_is_playing(mouse_enter_sound) {
+    audio_stop_sound(mouse_enter_sound);
 }
 </string>
           </argument>
