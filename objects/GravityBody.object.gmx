@@ -30,12 +30,16 @@
 event_inherited();
 
 mass = 1;
+
+gravForce = 0;
+
+gravTheta = 0;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -54,35 +58,55 @@ mass = 1;
             <kind>1</kind>
             <string>/// Handle gravitational effects
 
-// super.end_step()
-event_inherited();
+// Initialize list of gravity centers
+var effectiveGravCenters = undefined;
 
-// Find GravityCenters who's sphere of influence we are in and calculate gravity
-
-var chosenGravityCenter = undefined;
-
-var gravityCenters = getInstancesOfObject(GravityCenter);
-
-for ( var i = 0; i &lt; instance_number(GravityCenter); i++ ) {
-    var gravityCenter = gravityCenters[i];
-    var distance = calcDistance( self, gravityCenter );
+// Cycle through GravityCenters, identify centers whose SoI we are in
+for (var i = 0; i &lt; instance_number(GravityCenter); i++) {
+    // Get reference to GravityCenter instance
+    var gravCenter = instance_find(GravityCenter, i);
     
-    if (distance &lt; gravityCenter.sphereOfInfluence) {
-        
-        if is_undefined( chosenGravityCenter )
-            chosenGravityCenter = gravityCenter;
-        else if distance / gravityCenter.sphereOfInfluence &gt; calcDistance( self, chosenGravityCenter ) / chosenGravityCenter.sphereOfInfluence {
-            chosenGravityCenter = gravityCenter;
+    // Check to see if we are within SoI
+    if point_distance(x,y,gravCenter.x,gravCenter.y) &lt;= gravCenter.sphereOfInfluence {
+        // If so, save reference for later use
+        // Check if effectiveGravCenters has been defined yet
+        if is_undefined(effectiveGravCenters) {
+            // If so, define and save in [0]
+            effectiveGravCenters[0] = gravCenter;
+        } else {
+            // Else save in next slot
+            effectiveGravCenters[array_length_1d(effectiveGravCenters)] = gravCenter;
         }
+        
     }
 }
 
-var distance = calcDistance( self, chosenGravityCenter );
+// Initialize mainGravCenter as object calculations will be performed with
+var mainGravCenter = effectiveGravCenters[0];
 
-var acceleration = G * chosenGravityCenter.mass / sqr(distance);
-var theta = point_direction( x, y, chosenGravityCenter.x, chosenGravityCenter.y );
+// Cycle through effective grav centers for smallest distance
+for (var i = 1; i &lt; array_length_1d(effectiveGravCenters); i++) {
+    
+    // If this grav center is closer than the stored one...
+    if (point_distance(x,y,effectiveGravCenters[i].x,effectiveGravCenters[i].y)
+            &gt; point_distance(x,y,mainGravCenter.x,mainGravCenter.y)) {
+        
+        // ...replace stored gravCenter with this one
+        mainGravCenter = effectiveGravCenters[i];
+    }
+}
 
-accelerate( self, acceleration, theta );
+// Perform gravity calculations and store data from this run for use in
+//  enemy targeting routines which will occur in the main Step event
+var distance = point_distance(x,y,mainGravCenter.x,mainGravCenter.y);
+var acceleration = G * (mass / sqr(distance));
+
+var theta = point_direction(x,y,mainGravCenter.x,mainGravCenter.y);
+
+accelerate(self, distance, theta);
+
+gravForce = acceleration;
+gravTheta = theta;
 </string>
           </argument>
         </arguments>
