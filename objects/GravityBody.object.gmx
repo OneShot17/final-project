@@ -99,7 +99,7 @@ for (var i = 1; i &lt; array_length_1d(effectiveGravCenters); i++) {
 // Perform gravity calculations and store data from this run for use in
 //  enemy targeting routines which will occur in the main Step event
 var distance = point_distance(x,y,mainGravCenter.x,mainGravCenter.y);
-var acceleration = G * (mass / sqr(distance));
+var acceleration = G * (mainGravCenter.mass / sqr(distance));
 
 var theta = point_direction(x,y,mainGravCenter.x,mainGravCenter.y);
 
