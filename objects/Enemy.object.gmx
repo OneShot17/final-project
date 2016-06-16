@@ -82,11 +82,13 @@ maxThrust = 10;
 
 var angleToPlayer = point_direction(x,y,Player.x,Player.y);
 
-var thrust = gravForce;
+var angleForAntigravThrust = 180 - gravTheta;
 
-var theta = gravTheta;
+if gravForce &gt;= 10 {
+    accelerate(self, 10, angleForAntigravThrust);
+}
 
-
+alpha = angleForAntigravThrust + (180 - angleToPlayer);
 </string>
           </argument>
         </arguments>
